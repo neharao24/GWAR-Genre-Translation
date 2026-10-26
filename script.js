@@ -22,10 +22,10 @@ function toggleHuman() { humanOn = !humanOn; refresh(); }
 
 
 function getOutcome() {
-  if (!ragOn && !humanOn) return { box: 'bg-rose-50 border-rose-400 text-rose-950', title: 'A fake diagnosis reaches the patient', text: 'No database lookup and no human reviewer. The invented disease goes straight into care plans[5, 7].' };
-  if (!ragOn && humanOn)  return { box: 'bg-amber-50 border-amber-400 text-amber-950', title: 'It depends on the clinician catching it', text: 'A doctor may spot the fake disease, but only if they actively audit the output. The AI still generated the error[7, 9].' };
-  if (ragOn && !humanOn)  return { box: 'bg-amber-50 border-amber-400 text-amber-950', title: 'Fewer errors, but unverified edge cases remain', text: 'RAG cuts hallucinations, yet residual errors remain in complex cases without a human reviewer[7, 9].' };
-  return { box: 'bg-emerald-50 border-emerald-400 text-emerald-950', title: 'Grounded answer, checked by a person', text: 'The answer is retrieved from verified databases and signed off by a clinician. This is the optimal framework[2, 3, 9].' };
+  if (!ragOn && !humanOn) return { box: 'bg-rose-50 border-rose-400 text-rose-950', title: 'A fake diagnosis reaches the patient', text: 'No database lookup and no human reviewer. The invented disease goes straight into care plans [5, 7].' };
+  if (!ragOn && humanOn)  return { box: 'bg-amber-50 border-amber-400 text-amber-950', title: 'It depends on the clinician catching it', text: 'A doctor may spot the fake disease, but only if they actively audit the output. The AI still generated the error [7, 9].' };
+  if (ragOn && !humanOn)  return { box: 'bg-amber-50 border-amber-400 text-amber-950', title: 'Fewer errors, but unverified edge cases remain', text: 'RAG cuts hallucinations, yet residual errors remain in complex cases without a human reviewer [7, 9].' };
+  return { box: 'bg-emerald-50 border-emerald-400 text-emerald-950', title: 'Grounded answer, checked by a person', text: 'The answer is retrieved from verified databases and signed off by a clinician. This is the optimal framework [2, 3, 9].' };
 }
 
 
@@ -52,10 +52,10 @@ function refresh() {
   var ai = document.getElementById('ai-box');
   if (ragOn) {
     ai.className = 'p-4 rounded-xl border mb-3 bg-emerald-50 border-emerald-400 text-emerald-950';
-    ai.innerHTML = '<strong class="block mb-1">AI output: grounded shortlist</strong><span class="text-sm">Searched trusted databases. No match for "Bixonimania", so it was dropped[7]. Variant flagged for clinician review[2].</span>';
+    ai.innerHTML = '<strong class="block mb-1">AI output: grounded shortlist</strong><span class="text-sm">Searched trusted databases. No match for "Bixonimania", so it was dropped [7]. Variant flagged for clinician review [2].</span>';
   } else {
     ai.className = 'p-4 rounded-xl border mb-3 bg-rose-50 border-rose-400 text-rose-950';
-    ai.innerHTML = '<strong class="block mb-1">AI output: hallucination</strong><span class="text-lg font-extrabold block">Bixonimania Syndrome</span><span class="text-sm">Stated confidence: 98% (illustrative). This disease is fictional[7].</span>';
+    ai.innerHTML = '<strong class="block mb-1">AI output: hallucination</strong><span class="text-lg font-extrabold block">Bixonimania Syndrome</span><span class="text-sm">Stated confidence: 98% (illustrative). This disease is fictional [7].</span>';
   }
   paintOutcome('out-2');
 
