@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Balancing Innovation and Safety in Medical Artificial Intelligence</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div style="padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))">
+<main class="max-w-5xl mx-auto pt-8 pb-16">
+
+
+
+
+
+  <!-- ============ HEADER ============ -->
+  <header class="mb-6">
+    <div class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-1">Genre Translation -- Interactive Website</div>
+    <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Balancing Innovation and Safety in Medical AI</h1>
+    <p class="mt-2 text-base sm:text-lg text-slate-600 font-medium">
+        Scroll down to follow one case. Use the buttons to switch views and turn the AI safety checks on and off.
+    </p>
+  </header>
+
+
+
+
+  <!-- ============ CONTROL BAR ============ -->
+  <div id="bar" class="sticky z-30 bg-white rounded-xl border border-slate-200 shadow-sm p-3 mb-6" style="top: 16px;">
+    <div class="flex flex-wrap items-center gap-x-6 gap-y-3">
+
+      <!-- View switcher -->
+      <div class="flex items-center gap-2">
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-500">View</span>
+        <div class="flex gap-1">
+          <button onclick="setView('doctor')"   id="view-doctor"   class="px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-lg">Doctor</button>
+          <button onclick="setView('engineer')" id="view-engineer" class="px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-lg">Engineer</button>
+          <button onclick="setView('both')"     id="view-both"     class="px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-lg">Both</button>
+        </div>
+      </div>
+
+      <!-- Safety switcher -->
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Safety</span>
+        <button onclick="toggleRag()"   id="btn-rag"   class="px-3 py-1.5 text-xs sm:text-sm font-bold rounded-lg"></button>
+        <button onclick="toggleHuman()" id="btn-human" class="px-3 py-1.5 text-xs sm:text-sm font-bold rounded-lg"></button>
+      </div>
+    </div>
+
+    <!-- Scroll progress -->
+    <div class="mt-3 flex items-center gap-3">
+      <div class="flex-1 h-1.5 bg-slate-200 rounded-full overflow-hidden"><div id="progress" class="h-full bg-blue-600" style="width:0%"></div></div>
+      <span id="step-label" class="text-xs font-mono text-slate-500 whitespace-nowrap">Step 1 of 5</span>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- ============ SCROLLING AREA: text (left) + chart (right) ============ -->
+  <div class="layout">
+
+    <!-- ---------- LEFT: Steps ---------- -->
+    <div id="steps">
+
+      <section class="step" data-chart="0">
+        <h2 class="text-2xl font-bold text-slate-900">Step 1: 5-7 Years Without a Diagnosis</h2>
+        <p class="leading-relaxed">For a child rare genetic disorder detection can take five to seven years [2]. The signs are buried in tables containing miles of genetic data, and physical signs are not obvious [2].</p>
+        <div class="doctor-block p-4 bg-teal-50 border-l-4 border-teal-600 rounded-r-lg text-teal-950 text-sm">
+          <strong class="block mb-1 text-teal-900">Doctor's Perspective</strong>
+          The reality of testing is that 'sick' is often not sick enough. When diagnostic panels pan out empty, families go through agonizing limbo, causing severe stress and clinical burnout.
+        </div>
+        <div class="engineer-block p-4 bg-indigo-50 border-l-4 border-indigo-600 rounded-r-lg text-indigo-950 text-sm">
+          <strong class="block mb-1 text-indigo-900">Engineer's Perspective</strong>
+          The biggest technical challenge is the vast scale of information—thousands of variants per patient are referenced against free-text clinical notes [2]. Secondary analyses using AI reasoning assistants and multi-step language-model workflows applied to unsolved genomes find undiscovered signals [2].
+        </div>
+      </section>
+
+      <section class="step" data-chart="1">
+        <h2 class="text-2xl font-bold text-slate-900">Step 2: Real-World Clinical Deployment</h2>
+        <p class="leading-relaxed">Rather than abstract models, generative AI has been deployed in high-stakes environments—such as Boston Children's Hospital, where AI tools successfully helped diagnose 18 children whose rare conditions previously stumped specialists [5].</p>
+        <div class="doctor-block p-4 bg-teal-50 border-l-4 border-teal-600 rounded-r-lg text-teal-950 text-sm">
+          <strong class="block mb-1 text-teal-900">Doctor's Perspective</strong>
+          Clinicians must review phenotypes and genotypes side-by-side, using AI models as structured second-opinion engines rather than autonomous decision-makers [2].
+        </div>
+        <div class="engineer-block p-4 bg-indigo-50 border-l-4 border-indigo-600 rounded-r-lg text-indigo-950 text-sm">
+          <strong class="block mb-1 text-indigo-900">Engineer's Perspective</strong>
+          Agentic systems ingest symptom codes and complex variant structures as input data, generating transparent reasoning traces for clinical auditing [2, 5].
+        </div>
+      </section>
+
+      <section class="step" data-chart="2">
+        <h2 class="text-2xl font-bold text-slate-900">Step 3: The Risks of AI Fabrication</h2>
+        <p class="leading-relaxed">Web text used to train commercial language models is rife with unvetted data and false information [7]. Investigative auditing by Stokel-Walker revealed that AI models were misled by a prompt regarding a self-created fake illness called <strong>"Bixonimania,"</strong> citing manufactured references as real medical facts [7]. Unmoderated systems ingested this misinformation and treated it as legitimate healthcare guidance [7].</p>
+        <div class="p-4 bg-amber-50 border border-dashed border-amber-500 rounded-lg text-sm font-semibold text-amber-950">
+          Try toggling the RAG check and Human review buttons at the top to see how safety systems protect AI from hallucinations, with the 98% illustrative confidence score demonstrating how convincing an unvetted error can look [7].
+        </div>
+      </section>
+
+      <section class="step" data-chart="3">
+        <h2 class="text-2xl font-bold text-slate-900">Step 4: Performing the Safety Checks</h2>
+        <p class="leading-relaxed">A base model does not roll out safely on its own [3, 4]. Two fundamental protections must be enforced:</p>
+        <ul class="space-y-2 text-sm">
+          <li class="p-3 bg-white border border-slate-200 rounded-lg"><strong>RAG check.</strong> Cross-references model output against trusted medical sources (like PubMed and OMIM) before generating text [9].</li>
+          <li class="p-3 bg-white border border-slate-200 rounded-lg"><strong>Clinician-in-the-Loop.</strong> Requires an expert human clinician to authenticate every diagnostic hypothesis and treatment plan [2, 3].</li>
+        </ul>
+        <div class="engineer-block p-4 bg-indigo-50 border-l-4 border-indigo-600 rounded-r-lg text-indigo-950 text-sm">
+          <strong class="block mb-1 text-indigo-900">Engineer's Perspective</strong>
+          Retrieval is performed before generation to intercept low-confidence or unverified responses, routing them to a queue for human review [9].
+        </div>
+        <div class="doctor-block p-4 bg-teal-50 border-l-4 border-teal-600 rounded-r-lg text-teal-950 text-sm">
+          <strong class="block mb-1 text-teal-900">Doctor's Perspective</strong>
+          The AI output serves strictly as a prompt for clinical judgment, never an automatic prescription [2].
+        </div>
+      </section>
+
+      <section class="step" data-chart="4">
+        <h2 class="text-2xl font-bold text-slate-900">Step 5: Evidence and Accuracy</h2>
+        <p class="leading-relaxed">Hao and Wang's study incorporating RAG into clinical workflows noted an increase in documentation accuracy from 93.25% to 99.25%, with preoperative diagnostic accuracy reaching 96.4% [9].</p>
+        <p class="leading-relaxed">Still, mistakes persist in intricate clinical cases, suggesting that while RAG minimizes risk, it cannot eliminate all inaccuracies [4, 9]. Rigorous human oversight is essential. Over 90% of clinicians state that technology adoption is limited by trust and verification concerns [8, 9].</p>
+      </section>
+    </div>
+
+
+
+    <!-- ---------- RIGHT: Chart  ---------- -->
+    <aside class="chart-panel bg-white rounded-2xl border border-slate-200 shadow-sm p-5" aria-label="Live chart">
+
+      <!-- Chart 0: timeline -->
+      <div class="chart show" id="chart-0">
+        <div class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">Time to a Rare Disease Diagnosis [2]</div>
+        <div class="flex justify-between text-xs text-slate-500 font-mono mb-1"><span>Year 0</span><span>Year 5</span><span>Year 7</span></div>
+        <div class="w-full h-7 bg-slate-200 rounded-full overflow-hidden flex">
+          <div class="bar-fill h-full bg-slate-500 text-white text- [10px] flex items-center justify-center font-bold" data-w="71%" style="width:71%">Inconclusive Tests</div>
+          <div class="bar-fill h-full bg-amber-500 text-white text- [10px] flex items-center justify-center font-bold" data-w="29%" style="width:29%">Diagnosis</div>
+        </div>
+        <p class="text-xs text-slate-500 mt-2">Traditional diagnostic odysseys take 5 to 7 years without AI assistance [2].</p>
+        <div class="mt-4 p-3 bg-slate-100 rounded-lg text-sm"><strong>Conclusion:</strong> AI provides structured reasoning traces for physicians to audit [2].</div>
+      </div>
+
+
+      <!-- Chart 1: Real-world case -->
+      <div class="chart" id="chart-1">
+        <div class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">Boston Children's Hospital Deployment [5]</div>
+        <p class="text-xs text-slate-600 mb-3">Real-world pediatric case milestone (early 2026):</p>
+        <div class="doctor-block">
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-teal-100 text-teal-900">18 Pediatric Patients Diagnosed</span>
+            <span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-teal-100 text-teal-900">Rare Disease Resolution</span>
+            <span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-indigo-100 text-indigo-900">Traceable Reasoning Paths</span>
+          </div>
+        </div>
+        <div class="engineer-block">
+<pre class="bg-slate-900 text-slate-100 p-3 rounded-lg text-xs overflow-x-auto"><code>deployment = "Boston Children's Hospital"
+cases_solved = 18
+target = "pediatric rare disease"
+human_in_loop = <span id="code-human">true</span></code></pre>
+        </div>
+      </div>
+
+
+      <!-- Chart 2: AI simulator -->
+      <div class="chart" id="chart-2">
+        <div class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">AI Reasoning and Hallucination Simulation</div>
+        <div id="ai-box" class="p-4 rounded-xl border mb-3"></div>
+        <div id="out-2" class="p-4 rounded-xl border"></div>
+      </div>
+
+
+      <!-- Chart 3: Pipeline -->
+      <div class="chart" id="chart-3">
+        <div class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">Safety Pipeline Architecture [7, 9]</div>
+        <div class="grid grid-cols-3 gap-2 text-center text-xs font-semibold mb-3" id="flow"></div>
+        <div id="out-3" class="p-4 rounded-xl border"></div>
+      </div>
+
+
+      <!-- Chart 4: Error bars -->
+      <div class="chart" id="chart-4">
+        <div class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">Documentation errors per 100 entries [9]</div>
+        <div id="row-off" class="mb-3">
+          <div class="flex justify-between text-xs font-semibold mb-1"><span class="text-rose-700">Without RAG</span><span class="font-mono text-rose-700">6.75</span></div>
+          <div class="w-full h-4 bg-slate-200 rounded-full overflow-hidden"><div class="bar-fill h-full bg-rose-500" data-w="67.5%" style="width:67.5%"></div></div>
+        </div>
+        <div id="row-on" class="mb-3">
+          <div class="flex justify-between text-xs font-semibold mb-1"><span class="text-emerald-700">With RAG</span><span class="font-mono text-emerald-700">0.75</span></div>
+          <div class="w-full h-4 bg-slate-200 rounded-full overflow-hidden"><div class="bar-fill h-full bg-emerald-500" data-w="7.5%" style="width:7.5%"></div></div>
+        </div>
+        <p class="text-xs text-slate-500">RAG decreases documentation error rate from 6.75 to 0.75 per 100 entries (Hao & Wang) [9].</p>
+        <div class="mt-3 p-3 bg-slate-100 rounded-lg text-sm"><span class="text-2xl font-extrabold">96.4%</span> preoperative diagnostic accuracy with RAG [9].</div>
+      </div>
+    </aside>
+  </div>
+
+
+
+
+
+  <!-- ============ CALL TO ACTION ============ -->
+  <section class="mt-10 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
+    <h2 class="text-2xl font-bold text-slate-900 mb-2">Conclusion</h2>
+    <p class="text-sm text-slate-600 mb-4">AI in medicine can speed up the diagnosis process—but this is only possible if safety is squarely front and centre. Select your perspective:</p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <button onclick="setRole('patient')"  id="role-patient"  class="px-4 py-2 text-xs font-bold rounded-lg border">Patient</button>
+      <button onclick="setRole('engineer')" id="role-engineer" class="px-4 py-2 text-xs font-bold rounded-lg border">Software Developer</button>
+      <button onclick="setRole('policy')"   id="role-policy"   class="px-4 py-2 text-xs font-bold rounded-lg border">Policymaker</button>
+    </div>
+    <div id="role-box" class="p-4 bg-blue-50 border-l-4 border-blue-600 text-blue-950 text-sm font-medium rounded-r-lg"></div>
+  </section>
+
+
+
+
+
+  <!-- ============ REFERENCES ============ -->
+  <section class="mt-8 bg-slate-100 p-6 sm:p-8 rounded-2xl border border-slate-200">
+    <h2 class="text-base font-bold text-slate-900 uppercase tracking-wider mb-4">References</h2>
+    <ol class="space-y-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
+      <li><strong>[1]</strong> T. S. Athni, "Emerging Risks of AI-to-AI Interactions in Health Care: Lessons From Moltbook," <em>J. Med. Internet Res.</em>, 2026.[23]</li>
+      <li><strong>[2]</strong> A. Jaech et al., "LLM-Assisted Reanalysis of Unsolved Rare Disease genomes Increases Diagnostic Yield," <em>NEJM AI</em>, 2026.[23]</li>
+      <li><strong>[3]</strong> Z. Kozlakidis et al., "Through the looking glass: Ethical considerations regarding LLM-induced hallucinations," <em>Front. Digit. Health</em>, vol. 8, p. 1736616, 2026.[23]</li>
+      <li><strong>[4]</strong> J. Lu et al., "MHB: Medical hallucination benchmark for large language models," <em>Proc. AAAI Conf. Artif. Intell.</em>, vol. 40, no. 45, pp. 38971–38978, 2026.[23]</li>
+      <li><strong>[5]</strong> J. Perlo, "AI Helped Diagnose 18 Children Whose Rare Diseases Had Stumped Doctors," <i>NBC News</i>, 2026.[23]</li>
+      <li><strong>[6]</strong> C. Ross, "How AI helped treat a newborn's ultra rare disease," <em>STAT News</em>, 2026.[23]</li>
+      <li><strong>[7]</strong> C. Stokel-Walker, "Scientists invented a fake disease. AI told people it was real," <em>Nature</em>, 2026.[23]</li>
+      <li><strong>[8]</strong> H. Shi et al., "Barriers and Facilitators to Patient Acceptance of AI in Health Care," <em>JMIR</em>, 2026.[23]</li>
+      <li><strong>[9]</strong> K. Hao and B. Wang, "Retrieval-augmented generation in healthcare," <em>Digit. Med.</em>, vol. 12, no. 1, p. e25-00015, 2026.[23]</li>
+    </ol>
+
+  </section>
+
+</main>
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

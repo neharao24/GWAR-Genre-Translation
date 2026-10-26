@@ -1,0 +1,69 @@
+
+/* Page Setup */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+}
+
+/* View Mode Control */
+body[data-view="doctor"] .engineer-block {
+  display: none;
+}
+
+body[data-view="engineer"] .doctor-block {
+  display: none;
+}
+
+/* Two-Column Layout (Text on left, Chart on right) */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+/* Chart Panel */
+.chart-panel {
+  position: sticky;
+  top: 38vh; /* This pushes it down so it sits closer to the middle of the screen */
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* Scrolling Steps */
+.step {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 0;
+  opacity: 0.4; /* Faded when not looking at it */
+  transition: opacity 0.3s ease;
+}
+
+.step.active {
+  opacity: 1; /* Fully bright when active */
+}
+
+/* Charts Visibility */
+.chart {
+  display: none; /* Hidden by default */
+}
+
+.chart.show {
+  display: block; /* Shown when active */
+}
+
+/* Smooth bar graph animation */
+.bar-fill {
+  transition: width 1s ease;
+}
+
